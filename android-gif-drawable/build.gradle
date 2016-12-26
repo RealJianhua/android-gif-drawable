@@ -1,6 +1,16 @@
+buildscript {
+	repositories {
+		jcenter()
+	}
+	dependencies {
+		classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
+	}
+}
+
 apply plugin: 'com.android.library'
 apply plugin: 'jacoco-android'
 apply from: 'gradle-mvn-push.gradle'
+apply from: '../build.gradle'
 
 repositories {
 	jcenter()

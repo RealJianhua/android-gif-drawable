@@ -1,19 +1,9 @@
-buildscript {
-	repositories {
-		jcenter()
-	}
-	dependencies {
-		classpath 'com.android.tools.build:gradle:2.2.2'
-		classpath 'com.dicedmelon.gradle:jacoco-android:0.1.1'
-	}
-}
-
 ext {
 	versions = [
-			compileSdk: 25,
-			targetSdk : 25,
+			compileSdk: 24,
+			targetSdk : 24,
 			minSdk    : 9,
-			buildTools: '25.0.0',
+			buildTools: '25.0.1',
 	]
 }
 

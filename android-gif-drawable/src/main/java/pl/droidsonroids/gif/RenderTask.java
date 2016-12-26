@@ -1,6 +1,7 @@
 package pl.droidsonroids.gif;
 
 import android.os.SystemClock;
+import android.util.Log;
 
 import java.util.concurrent.TimeUnit;
 
@@ -28,8 +29,12 @@ class RenderTask extends SafeRunnable {
 			mGifDrawable.mNextFrameRenderTime = Long.MIN_VALUE;
 			mGifDrawable.mIsRunning = false;
 		}
+
 		if (mGifDrawable.isVisible() && !mGifDrawable.mInvalidationHandler.hasMessages(MSG_TYPE_INVALIDATION)) {
 			mGifDrawable.mInvalidationHandler.sendEmptyMessageAtTime(MSG_TYPE_INVALIDATION, 0);
+			Log.i("GifDrawable","send invalidation");
+		} else {
+			Log.i("GifDrawable","RenderTask. else, mGifDrawable.isVisible()="+mGifDrawable.isVisible());
 		}
 	}
 }

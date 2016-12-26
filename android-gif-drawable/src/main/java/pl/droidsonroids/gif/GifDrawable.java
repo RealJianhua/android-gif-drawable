@@ -28,6 +28,7 @@ import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
+import android.util.Log;
 import android.widget.MediaController.MediaPlayerControl;
 
 import java.io.File;
@@ -753,7 +754,10 @@ public class GifDrawable extends Drawable implements Animatable, MediaPlayerCont
 			final long renderDelay = Math.max(0, mNextFrameRenderTime - SystemClock.uptimeMillis());
 			mNextFrameRenderTime = Long.MIN_VALUE;
 			mExecutor.remove(mRenderTask);
+			Log.i("GifDrawable","GifDrawable. draw, renderDelay="+renderDelay);
 			mRenderTaskSchedule = mExecutor.schedule(mRenderTask, renderDelay, TimeUnit.MILLISECONDS);
+		} else {
+			Log.i("GifDrawable","GifDrawable. draw, else, mIsRenderingTriggeredOnDraw="+mIsRenderingTriggeredOnDraw+", mIsRunning="+mIsRunning+", mNextFrameRenderTime="+mNextFrameRenderTime);
 		}
 	}
 

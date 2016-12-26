@@ -3,6 +3,7 @@ package pl.droidsonroids.gif;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
+import android.util.Log;
 
 import java.lang.ref.WeakReference;
 
@@ -21,6 +22,7 @@ class InvalidationHandler extends Handler {
 	public void handleMessage(final Message msg) {
 		final GifDrawable gifDrawable = mDrawableRef.get();
 		if (gifDrawable == null) {
+			Log.i("GifDrawable","InvalidationHandler, gifDrawable==null, mDrawableRef="+mDrawableRef);
 			return;
 		}
 		if (msg.what == MSG_TYPE_INVALIDATION) {
